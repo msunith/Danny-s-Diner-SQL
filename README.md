@@ -1,4 +1,4 @@
-# Danny-s-Diner-SQL
+# Danny's_Diner-SQL
 Danny's Diner-Case study solutions for Danny's Diner #8weeksqlchallenge
 
 ## Problem Statement
@@ -29,12 +29,11 @@ Danny has shared 3 key datasets for this case study:
 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
 ##  Bonus Questions
-1 Danny and his team can use to quickly derive insights without needing to join the tables using SQL.Recreate the  table with customerid,order_date,product_name,price,Member(Y/N) using the available data:
+1. Danny and his team can use to quickly derive insights without needing to join the tables using SQL.Recreate the  table with customerid,order_date,product_name,price,Member(Y/N) using the available data:
 
 2. Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member
 purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
 
-## Insights
 
 
 
