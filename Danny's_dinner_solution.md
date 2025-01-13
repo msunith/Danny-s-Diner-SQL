@@ -211,33 +211,34 @@ ORDER BY customer_id;
 ### 1. Danny and his team can use to quickly derive insights without needing to join the tables using SQL.Recreate the  table with customerid,order_date,product_name,price,Member(Y/N)using the available data:
 
 ```
-select customer_id,order_date,product_name,price,
-	case
-		when datediff(order_date,join_date) >= 0 then "Y"
-        else "N"
-	end as member
-from sales 
-inner join menu using (product_id)
-left join members using (customer_id);
+SELECT customer_id,order_date,product_name,price,
+	CASE
+		WHEN datediff(order_date,join_date) >= 0 THEN "Y"
+        ELSE "N"
+	END AS member
+FROM sales 
+INNER JOIN menu USING (product_id)
+LEFT JOIN members USING (customer_id);
 ```
 
 ### 2. Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
 
 ```
-with cte as
-	(select customer_id, order_date, product_name, price,
-		case
-			when datediff(order_date,join_date) >= 0 then "Y"
-			else "N"
-		end as member    
-	from sales 
-	inner join menu using (product_id)
-	left join members using (customer_id))
-select *,
-		case member when "Y" then 
-    row_number() over (partition by customer_id,member 
-				order by order_date) end rank_order
-from cte;
+WITH cte AS
+	(SELECT customer_id, order_date, product_name, price,
+		CASE
+			WHEN datediff(order_date,join_date) >= 0 THEN "Y"
+			ELSE "N"
+		END AS member    
+	FROM sales 
+	INNER JOIN menu USING (product_id)
+	LEFT JOIN members USING (customer_id)
+    )
+SELECT *,
+		CASE member WHEN "Y" THEN 
+		ROW_NUMBER() OVER (PARTITION BY customer_id,member 
+				ORDER BY order_date) END rank_order
+FROM cte;
 ```
 
 ## Insights:
