@@ -14,7 +14,8 @@ Danny has shared 3 key datasets for this case study:
 - members
 - menu
 
-## Entity Relationship Diagram
+### Entity Relationship Diagram
+<img src="https://github.com/msunith/Danny-s-Diner-SQL/blob/main/Dannys_Diner/ERD.png" width ="500" height="50%"/>
 
 ## Case Study Questions
 1. What is the total amount each customer spent at the restaurant?
